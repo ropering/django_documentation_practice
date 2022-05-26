@@ -17,6 +17,7 @@ class QuestionAdmin(admin.ModelAdmin):
         }),
     ]
     inlines = [ChoiceInline]  # Choice 추가하기
+    list_display = ('question_text', 'pub_date', 'was_published_recently')
 
 
 admin.site.register(Question, QuestionAdmin)

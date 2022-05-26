@@ -3,7 +3,7 @@ from django.contrib import admin
 from .models import Question, Choice
 
 
-class ChoiceInline(admin.StackedInline):
+class ChoiceInline(admin.TabularInline):
     model = Choice
     extra = 3  # 선택 가능 폼 갯수 (추가 가능)
 

@@ -8,6 +8,10 @@ class ChoiceInline(admin.TabularInline):
     extra = 3  # 선택 가능 폼 갯수 (추가 가능)
 
 
+class ChoiceAdmin(admin.ModelAdmin):
+    list_display = ('choice_text', 'votes', 'question')
+
+
 class QuestionAdmin(admin.ModelAdmin):
     fieldsets = [
         (None, {'fields': ['question_text']}),
@@ -18,7 +22,8 @@ class QuestionAdmin(admin.ModelAdmin):
     ]
     inlines = [ChoiceInline]  # Choice 추가하기
     list_display = ('question_text', 'pub_date', 'was_published_recently')
+    list_filter = ['pub_date']
 
 
 admin.site.register(Question, QuestionAdmin)
-admin.site.register(Choice)
+admin.site.register(Choice, ChoiceAdmin)

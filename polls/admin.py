@@ -20,9 +20,10 @@ class QuestionAdmin(admin.ModelAdmin):
             'classes': ['collapse']  # 감추기
         }),
     ]
-    inlines = [ChoiceInline]  # Choice 추가하기
-    list_display = ('question_text', 'pub_date', 'was_published_recently')
-    list_filter = ['pub_date']
+    inlines = [ChoiceInline]  # 작성 페이지에 Choice 추가하기
+    list_display = ('question_text', 'pub_date', 'was_published_recently')  # display 항목
+    list_filter = ['pub_date']  # 필터 메뉴 (우측)
+    search_fields = ['question_text']
 
 
 admin.site.register(Question, QuestionAdmin)

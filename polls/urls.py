@@ -1,3 +1,6 @@
+'''
+urls.py(project) -> urls.py(app:polls) -> views.py(app:polls)
+'''
 from django.urls import path
 from . import views
 
